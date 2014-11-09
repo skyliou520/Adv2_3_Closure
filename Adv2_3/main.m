@@ -12,17 +12,10 @@ typedef float(^TotalPrice)(int,int);
 int counter = 0;
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        void(^blockArray[5])(void);
-        int i=0;
-        while (i<5) {
-            blockArray[i] = ^(){
-                NSLog(@"get i at %d\n",i);
-            };
-                      i++;
-        }
-        for (int i=0; i<5; i++) {
-            blockArray[i]();
-        }
+        NSArray* array = @[@"Jan",@"Feb",@"Mar",@"Apr",@"May",@"Jun"];
+        [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            NSLog(@"[%lu]value=%@",idx,obj);
+        }];
     }
     return 0;
 }
