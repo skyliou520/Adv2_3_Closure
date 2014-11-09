@@ -12,13 +12,10 @@ typedef float(^TotalPrice)(int,int);
 int counter = 0;
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        NSArray* array = @[@"Jan",@"Feb",@"Mar",@"Apr",@"May",@"Jun"];
-        [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            NSLog(@"[%lu]value=%@",idx,obj);
-            NSString* currentMonth = (NSString*)obj;
-            if([currentMonth hasPrefix:@"M"]){
-                *stop = true;
-            }
+        NSDictionary* phoneBook =
+        @{@"Mark":@"1234567",@"John":@"1111111"};
+        [phoneBook enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+            NSLog(@"key=%@,value=%@",key,obj);
         }];
     }
     return 0;
