@@ -23,6 +23,9 @@ int main(int argc, const char * argv[]) {
         NSLog(@"buy iPhone, total:%.1f",total(30000,8));
         NSLog(@"buy iPad, total:%.1f", total(25000,4));
         discount = 0.5f;
+        total = ^(int unitPrice, int quantity){
+            return discount*unitPrice*quantity;
+        };
         NSLog(@"[1111] buy iPhone, total:%.1f",total(30000,8));
         NSLog(@"[1111] buy iPad, total:%.1f", total(25000,4));
     }
