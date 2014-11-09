@@ -23,11 +23,12 @@ int main(int argc, const char * argv[]) {
             NSLog(@"local static = %d",localCounter++);
         };
         echoBlock();echoBlock();echoBlock();
-        int localCounter2 = 0;
+        __block int localCounter2 = 0;
         echoBlock = ^()
         {
             NSLog(@"local static = %d",localCounter2++);
         };
+        echoBlock();echoBlock();echoBlock();
     }
     return 0;
 }
