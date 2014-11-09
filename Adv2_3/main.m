@@ -12,23 +12,17 @@ typedef float(^TotalPrice)(int,int);
 int counter = 0;
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        EchoBlock echoBlock = ^()
-        {
-            NSLog(@"counter = %d",counter++);
-        };
-        echoBlock();echoBlock();echoBlock();
-        static int localCounter = 0;
-        echoBlock = ^()
-        {
-            NSLog(@"local static = %d",localCounter++);
-        };
-        echoBlock();echoBlock();echoBlock();
-        __block int localCounter2 = 0;
-        echoBlock = ^()
-        {
-            NSLog(@"local static = %d",localCounter2++);
-        };
-        echoBlock();echoBlock();echoBlock();
+        void(^blockArray[5])(void);
+        int i=0;
+        while (i<5) {
+            blockArray[i] = ^(){
+                NSLog(@"get i at %d\n",i);
+            };
+                      i++;
+        }
+        for (int i=0; i<5; i++) {
+            blockArray[i]();
+        }
     }
     return 0;
 }
