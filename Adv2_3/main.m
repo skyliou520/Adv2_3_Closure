@@ -17,6 +17,12 @@ int main(int argc, const char * argv[]) {
             NSLog(@"counter = %d",counter++);
         };
         echoBlock();echoBlock();echoBlock();
+        static int localCounter = 0;
+        echoBlock = ^()
+        {
+            NSLog(@"local static = %d",localCounter++);
+        };
+        echoBlock();echoBlock();echoBlock();
     }
     return 0;
 }
