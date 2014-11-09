@@ -13,6 +13,8 @@ int main(int argc, const char * argv[]) {
         // insert code here...
         EchoBlock myBlock =^(void){NSLog(@"Hello Echo!");};
         myBlock(); myBlock(); myBlock();
+        myBlock =^(void){NSLog(@"Refill");};
+        myBlock();
     }
     return 0;
 }
