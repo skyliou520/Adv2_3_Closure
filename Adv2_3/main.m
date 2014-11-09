@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-
+typedef void (^EchoBlock)(void);
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
-        void (^EchoBlock)(void)=^(void){NSLog(@"Hello Echo!");};
-        EchoBlock();
+        EchoBlock myBlock =^(void){NSLog(@"Hello Echo!");};
+        myBlock(); myBlock(); myBlock();
     }
     return 0;
 }
