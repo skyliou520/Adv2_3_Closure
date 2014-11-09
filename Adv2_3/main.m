@@ -15,6 +15,10 @@ int main(int argc, const char * argv[]) {
         NSArray* array = @[@"Jan",@"Feb",@"Mar",@"Apr",@"May",@"Jun"];
         [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             NSLog(@"[%lu]value=%@",idx,obj);
+            NSString* currentMonth = (NSString*)obj;
+            if([currentMonth hasPrefix:@"M"]){
+                *stop = true;
+            }
         }];
     }
     return 0;
